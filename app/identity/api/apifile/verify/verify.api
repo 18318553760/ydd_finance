@@ -1,0 +1,22 @@
+syntax = "v1"
+
+info(
+    title: "授权认证服务"
+   	desc: "授权认证服务"
+   	author: "Mr.chen"
+   	date:  "2022-03-09"
+   	email: "935859473@qq.com"
+   	version: "v1"
+)
+
+type (
+    VerifyTokenReq {
+    }
+    VerifyTokenResp {
+        UserId int64 `json:"userId"`
+        Ok     bool  `json:"ok"`
+    }
+    VerifyPingResp {
+        Ok     string  `json:"ok"`
+    }
+)

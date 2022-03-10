@@ -1,0 +1,35 @@
+syntax = "v1"
+
+info(
+	title: "授权认证服务"
+	desc: "授权认证服务"
+	author: "Mr.chen"
+	date:  "2022-03-09"
+	email: "935859473@qq.com"
+	version: "v1"
+)
+
+import (
+	"verify/verify.api"
+	"verify/login.api"
+)
+
+//授权模块v1版本！！！不需要！！！登陆的接口
+@server(
+	group: verify
+	prefix: identity/v1
+)
+service identity {
+	
+	@doc "验证认证请求token"
+	@handler token
+	get /verify/token (VerifyTokenReq) returns (VerifyTokenResp)
+	
+	@doc "测试新加的接口是否影响写的代码"
+	@handler ping
+	get /ping  returns (VerifyPingResp)
+	
+	@doc "测试生成token,模拟登陆"
+	@handler login
+	post /login (VerifyLoginReq) returns (VerifyLoginResp)
+}

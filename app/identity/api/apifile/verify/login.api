@@ -1,0 +1,23 @@
+syntax = "v1"
+
+info(
+    title: "用户登录服务"
+   	desc: "用户登录服务"
+   	author: "Mr.chen"
+   	date:  "2022-03-09"
+   	email: "935859473@qq.com"
+   	version: "v1"
+)
+
+type (
+    VerifyLoginReq {
+        Username string `json:"username"`
+        Pass    string `json:"username"`
+    }
+    VerifyLoginResp {
+        AccessToken  string `json:"accessToken"`
+       	AccessExpire int64  `json:"accessExpire"`
+       	RefreshAfter int64  `json:"refreshAfter"`
+    }
+)
+

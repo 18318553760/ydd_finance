@@ -1,0 +1,34 @@
+Name: identity.rpc
+ListenOn: 127.0.0.1:8881
+Etcd:
+  Hosts:
+  - 127.0.0.1:2379
+  Key: identity.rpc
+#jwtAuth
+JwtAuth:
+  AccessSecret: 68asajshakak
+  AccessExpire: 31536000
+# redis 服务
+Redis:
+  Host: 127.0.0.1:6379
+  Type: node
+  Pass: "123456"
+DB:
+  DataSource: root:guohong@tcp(127.0.0.1:3306)/identity?charset=utf8mb4&parseTime=true&loc=Asia%2FShanghai
+Cache:
+  - Host: 127.0.0.1:6379
+    Pass: "123456"
+
+#链路追踪,系统已经写好，只需配置文件
+Telemetry:
+  Name: identity-rpc
+  Endpoint: http://127.0.0.1:14268/api/traces
+  Sampler: 1.0
+  Batcher: jaeger
+
+
+# 服务监控，需要安装Prometheus
+Prometheus:
+  Host: 0.0.0.0
+  Port: 9092
+  Path: /metrics
